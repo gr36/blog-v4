@@ -1,0 +1,34 @@
+{{ $remoteJsonUrl := "https://raw.githubusercontent.com/gr36/blog/main/data/rcs.json" }}
+{{ $likes := getJSON $remoteJsonUrl }}
+<section id="links">
+    <h2>Links</h2>
+    <ul>
+        {{ range $likes.liked.links }}
+            <li>
+                <a href="{{ .url }}" target="_blank">{{ .title }}</a> - {{ .description }}
+            </li>
+        {{ end }}
+    </ul>
+</section>
+
+<section id="blogs">
+    <h2>Blogs</h2>
+    <ul>
+        {{ range $likes.liked.blogs }}
+            <li>
+                <a href="{{ .url }}" target="_blank">{{ .title }}</a> - {{ .description }}
+            </li>
+        {{ end }}
+    </ul>
+</section>
+
+<section id="stuff">
+    <h2>Stuff</h2>
+    <ul>
+        {{ range $likes.liked.stuff }}
+            <li>
+                <a href="{{ .url }}" target="_blank">{{ .title }}</a> - {{ .description }}
+            </li>
+        {{ end }}
+    </ul>
+</section>

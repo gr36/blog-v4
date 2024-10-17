@@ -1,0 +1,22 @@
+{{ $carouselposts := .Site.Taxonomies.categories.photos }}
+
+    <div class="divider"><h3 class="divider_title">Photos</h3>
+<span class="divider_bar"></div>
+<div id="latest_photos">
+    {{ range first 8 $carouselposts }}
+    <div class="img_card">
+        <a href="{{ .Permalink }}">
+            {{ with .Params.images }}
+            {{ range first 1 . }}
+            <img src="{{ . | absURL }}" width="200" height="300"/>
+            {{ end }}
+            {{ end }}
+            <div class="card-content">
+                <p>View <i class="fa-solid fa-arrow-right"></i></p>
+            </div>
+        </a>
+    </div>
+    {{ end }}
+    <a class="view_all" href="/photos">View All</a>
+
+</div>

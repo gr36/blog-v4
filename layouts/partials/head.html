@@ -1,0 +1,44 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta content="{{ .Site.Author.name }}" name="author">
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script src="https://kit.fontawesome.com/f4170b83c1.js" crossorigin="anonymous"></script>
+</script>
+<!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA2iiqVT4S47mIacHngy7rMcM1CTnuNWdU",
+            authDomain: "like-counter-db3c5.firebaseapp.com",
+            projectId: "like-counter-db3c5",
+            storageBucket: "like-counter-db3c5.appspot.com",
+            messagingSenderId: "943706683891",
+            appId: "1:943706683891:web:50d087b7032733bce9fa86",
+            measurementId: "G-TJW95DFM1F"
+        };
+
+        // Initialize Firebase if not already initialized
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+    </script>
+
+
+  <link rel="me" href="https://github.com/gr36" />
+  <link rel="me" href="https://instagram.com/_greg_morris" />
+  <link rel="me" href="https://gregmorris.co.uk">
+ {{ partial "opengraph.html" . }}
+
+
+  <title>
+      {{- block "title" . -}}
+		{{- .Site.Title -}}
+		{{- if and .Title (ne .Title .Site.Title) }}
+		- {{ .Title }}
+		{{- end -}}
+      {{- end -}}
+  </title>
+  {{ partial "microblog_head.html" . }}
+</head>

@@ -1,0 +1,23 @@
+{{ $microposts := where .Site.RegularPages "Type" "post" }}
+{{ $microposts = where $microposts "Params.categories" "not in" (slice "photos" "essay") }}
+
+    <div class="divider"><h3 class="divider_title">Micro_posts</h3>
+<span class="divider_bar"></div>
+<div id="latest_photos">
+    {{ range first 8 $microposts }}
+    <div class="card">
+        <a href="{{ .Permalink }}">
+            {{ .Content }}
+        </a>
+    </div>
+    {{ end }}
+
+<div class="socials">
+		<span>Follow me on:</span>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-threads"></i></a>
+        <a href="#"><i class="fa-brands fa-bluesky"></i></a>
+        <a href="#"><i class="fa-solid fa-mug-saucer"></i></a>
+    </div>
+
+</div>

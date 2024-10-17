@@ -1,0 +1,47 @@
+<div class="comments">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('.microblog_reply_form');
+    var showFormDiv = document.getElementById('showForm');
+
+    if (form) {
+        form.style.display = 'none'; 
+    }
+
+    if (showFormDiv) {
+        showFormDiv.addEventListener('click', function() {
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+                this.innerHTML = '<i class="fa-solid fa-comment"></i> Hide Form';
+            } else {
+                form.style.display = 'none';
+                this.innerHTML = '<i class="fa-solid fa-comment"></i> Leave Reply';
+            }
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+        const conversations = document.querySelectorAll('.microblog_conversation');
+
+        conversations.forEach(conversation => {
+            const posts = conversation.querySelectorAll('.microblog_post');
+
+            if (posts.length > 0) {
+                const details = document.createElement('details');
+                const summary = document.createElement('summary');
+                summary.textContent = `Read comments (${posts.length})`;
+
+                details.appendChild(summary);
+
+                posts.forEach(post => {
+                    details.appendChild(post);
+                });
+
+                conversation.appendChild(details);
+            }
+        });
+    });
+</script>
+<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+</div>

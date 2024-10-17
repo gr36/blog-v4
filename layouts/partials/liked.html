@@ -1,0 +1,31 @@
+<div class="ilike">
+<details>
+<summary>I like these things, you might too</summary>
+<div class="roll-call">
+<div id="random-blog-container"></div>
+<div id="random-stuff-container"></div>
+<script>
+const url = 'https://gregmorris.co.uk/assets/data/rcs.json';
+
+function getRandomItem(items) {
+// Pick a random item from the array
+return items[Math.floor(Math.random() * items.length)];
+}
+
+fetch(url)
+.then(response => response.json())
+.then(data => {
+// Pick one random blog and display it
+const randomBlog = getRandomItem(data.liked.blogs);
+const blogContainer = document.getElementById('random-blog-container');
+blogContainer.innerHTML = `<a href="${randomBlog.url}" target="_blank">					<strong>${randomBlog.title}</strong><p>${randomBlog.description}</p></a>`;
+
+// Pick one random stuff and display it
+const randomStuff = getRandomItem(data.liked.stuff);
+const stuffContainer = document.getElementById('random-stuff-container');
+stuffContainer.innerHTML = `<a href="${randomStuff.url}" target="_blank"><strong>${randomStuff.title}</strong><p>${randomStuff.description}</p></a>`;
+})
+.catch(error => console.error('Error fetching data:', error));
+</script>
+</details>
+</div>

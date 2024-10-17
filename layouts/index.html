@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{ $paginator := .Paginate (.Site.Taxonomies.categories.essay) 5 }}
+
+{{ if eq $paginator.PageNumber 1 }}
+{{ end }}
+
+<ul class="post-list">
+
+{{ if or .IsHome .Site.Params.paginate_categories }}
+	{{ $list := $paginator.Pages }}
+	{{ range $list  }}
+		{{ partial "post-item.html" . }}
+	{{ end }}
+{{ else }}
+	{{ $list := where .Site.Pages.ByDate.Reverse "Type" "post" }}
+	{{ range $list  }}
+		{{ partial "post-item.html" . }}
+	{{ end }}
+{{ end }}
+
+</ul>
+
+{{ $pag := $.Paginator }}
+
+<nav class="pagination" role="navigation">
+    {{ if or $pag.HasPrev $pag.HasNext }}
+		{{ if $pag.HasPrev }}
+			<a class="newer-posts" href="{{ $pag.Prev.URL }}">← Newer Posts</a>
+		{{ end }}
+		<span class="page-number">Page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}</span>
+		{{ if $pag.HasNext }}
+			<a class="older-posts" href="{{ $pag.Next.URL }}">Older Posts →</a>
+		{{ end }}
+	{{ end }}
+</nav>
+
+{{ end }}
