@@ -1,4 +1,4 @@
-{{ if in .Params.categories "essay" }}
+{{ if in .Params.categories "Essay" }}
 <li class="long-post">
   <div class="post-title">
     <h1 class="p-name no-link-style"><a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a></h1>
@@ -22,8 +22,7 @@
      {{ .Content }}
   </section>
 </li>
-
+<span class="separator"><span class="divider"></span></span>
 {{ end }}
 
 
-<span class="separator"><span class="divider"></span></span>

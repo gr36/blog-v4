@@ -400,8 +400,10 @@ span.separator:last-child {
 
 /* Post */
 
-.post {
-  margin: 2rem 0;
+.long-post {
+	padding: 20px;
+	background: #e8e8e8;
+	border-radius: 8px
 }
 
 .post a, .post a:visited {
