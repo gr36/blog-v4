@@ -2,8 +2,8 @@
 <a href="{{ .Permalink }}" class="p-name">
 <li class="post long">
   <div class="post-title">
+    <div class="datetime" style="font-size: 70%"><i class="fa-regular fa-calendar"></i> <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "02 Jan 2006" }}</time></div>
     <h1 class="p-name no-link-style">{{ .Title }}</h1>
-<div class="datetime" style="font-size: 70%"><i class="fa-regular fa-calendar"></i> <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "02 Jan 2006" }}</time></div>
   </div>
 <section class="e-content post-body">
      {{ .Summary }}
@@ -15,12 +15,11 @@
 {{ else }}
 
 <li class="post short">
+  <div class="datetime" style="font-size: 70%"><i class="fa-regular fa-calendar"></i> <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "02 Jan 2006" }}</time></div>
   <div class="post-title">
     {{ if .Title }}
     <h1 class="p-name no-link-style"><a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a></h1>
     {{ end }}
-<div class="datetime" style="font-size: 70%"><i class="fa-regular fa-calendar"></i> <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "02 Jan 2006" }}</time></div>
-
   </div>
 <section class="e-content post-body">
      {{ .Content }}
