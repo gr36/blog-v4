@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $paginator := .Paginate (.Site.Taxonomies.categories.essay) 5 }}
+{{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
 
 {{ if eq $paginator.PageNumber 1 }}
 {{ end }}

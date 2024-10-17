@@ -400,6 +400,10 @@ span.separator:last-child {
 
 /* Post */
 
+.post {
+  margin: 2rem;
+}
+
 .long-post {
 	padding: 20px;
 	background: #e8e8e8;

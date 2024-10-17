@@ -1,5 +1,5 @@
 {{ if in .Params.categories "Essay" }}
-<li class="long-post">
+<li class="post long">
   <div class="post-title">
     <h1 class="p-name no-link-style"><a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a></h1>
 <div class="datetime" style="font-size: 70%"><i class="fa-regular fa-calendar"></i> <time datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "02 Jan 2006" }}</time></div>
@@ -10,7 +10,7 @@
 </li>
 {{ else }}
 
-<li class="short-post">
+<li class="post short">
   <div class="post-title">
     {{ if .Title }}
     <h1 class="p-name no-link-style"><a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a></h1>
